@@ -1,10 +1,15 @@
-body,input,button{
-    font-family: 'Roboto', sans-serif;
-}
 
 body{
     background: #edf0f1;
     padding: 80px 0 0 0;
+}
+
+body,input,button{
+    font-family: 'Roboto', sans-serif;
+}
+
+.nofill{
+    fill: none;
 }
 
 header{
@@ -147,15 +152,17 @@ ul.todo li .buttons button{
     border:0px;
     position: relative;
     box-shadow: none;
+    cursor: pointer;
 }
 
 ul.todo li .buttons button:last-of-type::before{
-    width: 1px;
+    content: '';
+    width: 2px;
     height: 30px;
     position: absolute;
-    top: 10px;
-    right: 0;
     background: #edf0f1;
+    top: 10px;
+    left: 0;
 }
 
 ul.todo li .buttons button svg{
@@ -167,10 +174,27 @@ ul.todo li .buttons button svg{
     margin: -11px 0 0 -11px;
 }
 
+ul.todo li .buttons button.complete svg{
+    border-radius: 11px;
+    border:1.5px solid #25b992;
+}
+
+ul.todo li .buttons button svg .fill{
+    -webkit-transition: fill 0.2s ease;
+    -moz-transition: fill 0.2s ease;
+    -ms-transition:fill 0.2s ease;
+    -o-transition: fill 0.2s ease;
+    transition: fill 0.2s ease;
+}
+
 ul.todo li .buttons button.remove svg .fill{
     fill: #c0cecb;
 }
 
 ul.todo li .buttons button.remove:hover svg.fill{
     fill: #e85656;
+}
+
+ul.todo li .buttons button.complete svg .fill{
+    fill: #25b992;
 }

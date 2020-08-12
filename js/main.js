@@ -7,9 +7,18 @@ var completeSvg='<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xli
 // if the item ha value, then add it to the todo list 
 document.getElementById('add').addEventListener('click',function(){
     var value=document.getElementById('item').value;
-    if(value) addItemTodo(value);
+    if(value){
+        addItemTodo(value);
+        document.getElementById('item').value="";
+    } 
 
 });
+
+function removeItem(e){
+    var item=this.parentNode.parentNode;
+    var parent=item.parentNode;
+    parent.removeChild(item);
+}
 
 //Add a new item to the ToDo List 
 function addItemTodo(text){
@@ -25,6 +34,9 @@ function addItemTodo(text){
     remove.classList.add('remove');
     remove.innerHTML=removeSvg;
 
+    //Add eventListener to the removing items
+    remove.addEventListener('click',removeItem);
+
     var complete=document.createElement('button');
     complete.classList.add('complete');
     complete.innerHTML=completeSvg;
@@ -32,5 +44,5 @@ function addItemTodo(text){
     buttons.appendChild(remove);
     buttons.appendChild(complete);
     item.appendChild(buttons);
-    list.appendChild(item);
+    list.insertBefore(item,list.childNodes[0]);
 }

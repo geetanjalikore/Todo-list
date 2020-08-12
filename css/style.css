@@ -177,7 +177,7 @@ ul.todo li .buttons button svg{
 ul.todo li .buttons button.complete svg {
     border-radius: 11px;
     border: 1.5px solid #25b99a;
-  
+    
     transition: background 0.2s ease;
   }
   
@@ -212,4 +212,20 @@ ul.todo li .buttons button.complete svg {
   
   ul.todo li .buttons button.complete svg .fill {
     fill: #25b99a;
+  }
+
+  ul.todo#completed:not(:empty){
+      padding:60px 0 0 15px;
+      position: relative;
+  }
+
+  ul.todo#completed:not(:empty):before{
+    content: '';
+    width: 150px;
+    height: 1px;
+    background: #d8e5e0;
+    position: absolute;
+    top:30px;
+    left: 50%;
+    margin: 0 0 0 -75;
   }

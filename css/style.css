@@ -116,7 +116,7 @@ ul.todo{
 }
 
 ul.todo li{
-    width: 100%;
+    width: 70%;
     min-height: 50px;
     float: left;
     font-size: 14px;
@@ -228,4 +228,23 @@ ul.todo li .buttons button.complete svg {
     top:30px;
     left: 50%;
     margin: 0 0 0 -75;
+  }
+
+  ul.todo#todo:empty:after{
+      content: 'You have nothing to do!';
+      margin: 15px 0 0 0;
+  }
+
+  ul.todo#completed:empty:after{
+      content: 'You have yet to complete any tasks. ';
+  }
+
+  ul.todo#todo:empty:after,
+  ul.todo#completed:empty:after
+  {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
   }
